@@ -38,10 +38,7 @@ export default function AllCategories() {
           return (
             <div key={category.strCategory}>
               <Link
-                to={`categories/${category.strCategory.replace(
-                  /[/]/g,
-                  " or "
-                )}`}
+                to={`categories/${category.strCategory.replace(/[/]/g, "_")}`}
                 target="_blank"
               >
                 <div className="category">{category.strCategory}</div>

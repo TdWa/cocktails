@@ -5,12 +5,12 @@ import "./NavBar.css";
 export default function NavBar() {
   return (
     <header>
-      <h1>Welcome</h1>
-      <NavLink exact={true} to="/">
+      <h1>Cocktail Stuff</h1>
+      <NavLink className="link" exact={true} to="/">
         Home
       </NavLink>
       <br></br>
-      <NavLink exact={true} to="/categories">
+      <NavLink className="link" exact={true} to="/categories">
         Cocktail Categories
       </NavLink>
     </header>

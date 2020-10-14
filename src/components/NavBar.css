@@ -1,8 +1,12 @@
 header {
   background-color: aquamarine;
-  margin-bottom: 20px;
+  margin: 0 0 20px 0;
 }
 
 .active {
   background-color: yellow;
+}
+
+.link {
+  font-size: 18px;
 }
