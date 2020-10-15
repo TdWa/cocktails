@@ -5,15 +5,21 @@ import axios from "axios";
 export default function SearchCocktail() {
   const [searchText, setSearchText] = useState("");
   const [data, setData] = useState(null);
+  const [searchType, setSearchType] = useState("name");
 
-  async function getSearchResults(search) {
+  async function getSearchResults(search, type) {
     if (search === "") {
       return;
     }
     try {
       search = encodeURIComponent(search);
-      const response = await axios.get(`
+      const response =
+        type === "name"
+          ? await axios.get(`
         https://www.thecocktaildb.com/api/json/v1/1/search.php?s=${search}
+        `)
+          : await axios.get(`
+          https://www.thecocktaildb.com/api/json/v1/1/filter.php?i=${search}
         `);
       console.log("response:", response);
       console.log("response.data.drinks:", response.data.drinks);
@@ -26,21 +32,32 @@ export default function SearchCocktail() {
 
   const searchHandler = (e) => {
     e.preventDefault(); // do not resfresh, this is 2020
-    getSearchResults(searchText);
+    getSearchResults(searchText, searchType);
     setSearchText("");
   };
 
   return (
     <div>
       <form>
+        <label htmlFor="searchType">Search by:</label>
+        <select
+          onChange={(e) => setSearchType(e.target.value)}
+          name="select"
+          id="searchType"
+        >
+          <option value="name">Name</option>
+          <option value="ingredient">Ingredient</option>
+        </select>
+        <br></br>
+        <br></br>
         <input
           type="text"
-          placeholder="cocktail name"
+          placeholder={searchType === "name" ? "cocktail name" : "ingredient"}
           onChange={(e) => setSearchText(e.target.value)}
           value={searchText}
           required //not working anymore?
         ></input>
-        <input onClick={searchHandler} type="submit"></input>
+        <input onClick={searchHandler} type="submit" value="Search"></input>
       </form>
       {data === null ? (
         <div></div>

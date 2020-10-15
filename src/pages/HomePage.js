@@ -7,9 +7,10 @@ export default function HomePage() {
       <h2>Home page</h2>
       <p>This is a website to do cocktail things</p>
       <p>
-        Go to Cocktail Categories in the header menu <br></br>
+        Go to Cocktail Categories or Quiz in the header menu <br></br>
         <br></br> Or search for Cocktail by name below!
       </p>
+      <br></br>
       <SearchCocktail />
     </div>
   );
