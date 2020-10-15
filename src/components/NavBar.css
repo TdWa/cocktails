@@ -8,5 +8,6 @@ header {
 }
 
 .link {
+  display: inline-block;
   font-size: 18px;
 }

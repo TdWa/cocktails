@@ -1,0 +1,10 @@
+#cocktailPage p {
+  margin-block-start: 0;
+  margin-block-end: 10px;
+  max-width: 500px;
+}
+
+#cocktailPage img {
+  width: 200px;
+  margin-bottom: 20px;
+}

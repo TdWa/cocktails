@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 import axios from "axios";
 import "./CategoryPage.css";
 
@@ -12,7 +12,6 @@ export default function CategoryPage() {
 
     async function getCoctails() {
       try {
-        // Ordinary_Drink
         const categoryNoSpace = param.replace(/ /g, "_");
         const encodedCategory = encodeURIComponent(categoryNoSpace);
         const response = await axios.get(
@@ -25,18 +24,24 @@ export default function CategoryPage() {
       }
     }
     getCoctails();
-  }, []);
+  }, [param]);
 
   return (
-    <div>
+    <div id="CategoryPage">
       <h2>Category: {param}</h2>
-      <div className="container">
+      <div className="cardContainer">
         {data
           ? data.map((drink) => {
               return (
-                <div key={drink.idDrink} className="item">
-                  <p>{drink.strDrink}</p>
-                  <img src={drink.strDrinkThumb} alt="coctail thumbnail" />
+                <div key={drink.idDrink} className="cardItem">
+                  <Link to={`../cocktail/${drink.idDrink}`} target="_blank">
+                    <p>{drink.strDrink}</p>
+                    <img
+                      className="cardImg"
+                      src={drink.strDrinkThumb}
+                      alt="coctail thumbnail"
+                    />
+                  </Link>
                 </div>
               );
             })

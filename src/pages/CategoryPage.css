@@ -1,9 +1,9 @@
-.container {
+.cardContainer {
   display: flex;
   flex-wrap: wrap;
 }
 
-.item {
+.cardItem {
   background-color: rgb(238, 238, 238);
   width: 130px;
   min-height: 200px;
@@ -15,12 +15,12 @@
   /* justify-content: center; */
 }
 
-.item p {
+.cardItem p {
   line-height: 18px;
   min-height: 54px;
   margin: 20px 10px 5px 10px;
 }
 
-img {
+.cardImg {
   width: 100px;
 }
