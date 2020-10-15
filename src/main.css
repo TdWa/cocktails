@@ -1,0 +1,13 @@
+img {
+  width: 200px;
+  margin-bottom: 20px;
+}
+
+#quizPage {
+  position: relative;
+}
+
+.feedback {
+  position: absolute;
+  top: 180px;
+}

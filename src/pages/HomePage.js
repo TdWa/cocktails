@@ -8,7 +8,7 @@ export default function HomePage() {
       <p>This is a website to do cocktail things</p>
       <p>
         Go to Cocktail Categories or Quiz in the header menu <br></br>
-        <br></br> Or search for Cocktail by name below!
+        <br></br> Or search for specific cocktails below!
       </p>
       <br></br>
       <SearchCocktail />

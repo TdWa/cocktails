@@ -6,6 +6,7 @@ export default function SearchCocktail() {
   const [searchText, setSearchText] = useState("");
   const [data, setData] = useState(null);
   const [searchType, setSearchType] = useState("name");
+  const [resultText, setResultText] = useState("");
 
   async function getSearchResults(search, type) {
     if (search === "") {
@@ -33,6 +34,7 @@ export default function SearchCocktail() {
   const searchHandler = (e) => {
     e.preventDefault(); // do not resfresh, this is 2020
     getSearchResults(searchText, searchType);
+    setResultText(searchText);
     setSearchText("");
   };
 
@@ -47,7 +49,9 @@ export default function SearchCocktail() {
         >
           <option value="name">Name</option>
           <option value="ingredient">Ingredient</option>
-        </select>
+        </select>{" "}
+        (It seems ingredient search only works for some common ones and it must
+        be fully spelled out, search by name can be partial)
         <br></br>
         <br></br>
         <input
@@ -62,10 +66,10 @@ export default function SearchCocktail() {
       {data === null ? (
         <div></div>
       ) : data === undefined ? (
-        <h3>No matches found</h3>
+        <h3>{`No matches found for "${resultText}"`}</h3>
       ) : (
         <div>
-          <h3>Search Results:</h3>
+          <h3>{`Search results for "${resultText}":`}</h3>
           <div className="cardContainer">
             {data
               ? data.map((drink) => {

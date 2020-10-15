@@ -4,7 +4,7 @@ header {
 }
 
 .active {
-  background-color: yellow;
+  font-weight: bold;
 }
 
 .link {

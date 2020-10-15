@@ -6,6 +6,7 @@ import CategoryPage from "./pages/CategoryPage";
 import CocktailPage from "./pages/CocktailPage";
 import QuizPage from "./pages/QuizPage";
 import NavBar from "./components/NavBar";
+import "./main.css";
 
 function App() {
   return (
