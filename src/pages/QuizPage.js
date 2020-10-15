@@ -24,19 +24,19 @@ export default function QuizPage() {
     if (correct === 2 && document.getElementById("answer1").checked) {
       setFeedback(
         <h3 style={{ color: "green" }} className="feedback">
-          &#x1f44f; Correct! &#x1f44f;
+          Correct!
         </h3>
       );
     } else if (correct === 5 && document.getElementById("answer2").checked) {
       setFeedback(
         <h3 style={{ color: "green" }} className="feedback">
-          &#x1f44f; Correct! &#x1f44f;
+          Correct!
         </h3>
       );
     } else if (correct === 8 && document.getElementById("answer3").checked) {
       setFeedback(
         <h3 style={{ color: "green" }} className="feedback">
-          &#x1f44f; Correct! &#x1f44f;
+          Correct!
         </h3>
       );
     } else {
