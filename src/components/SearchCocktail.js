@@ -27,7 +27,7 @@ export default function SearchCocktail() {
       const result = response.data.drinks ? response.data.drinks : undefined;
       setData(result);
     } catch (e) {
-      console.log("getSearchResults error:", e);
+      setData(e.message);
     }
   }
 
@@ -67,6 +67,8 @@ export default function SearchCocktail() {
         <div></div>
       ) : data === undefined ? (
         <h3>{`No matches found for "${resultText}"`}</h3>
+      ) : typeof data === "string" ? (
+        data
       ) : (
         <div>
           <h3>{`Search results for "${resultText}":`}</h3>

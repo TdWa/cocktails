@@ -68,8 +68,8 @@ export default function QuizPage() {
             options.push(drink.strDrinkThumb);
           }
         } catch (e) {
-          console.log("error from getRandomCoctails", e);
-          options.push(Math.random());
+          document.getElementById("feedback").textContent = e.message;
+          return;
         }
       }
       console.log(options);
@@ -88,6 +88,9 @@ export default function QuizPage() {
     <div id="quizPage">
       <h2>Welcome to Quiz</h2>
       <p>What is the name of the drink on the picture?</p>
+      <div id="abc">
+        <div id="feedback">{feedback ? feedback : ""}</div>
+      </div>
       <form>
         <input
           onClick={getNewQuestion}
@@ -141,7 +144,6 @@ export default function QuizPage() {
           <div></div>
         )}
       </form>
-      <div>{feedback ? feedback : ""}</div>
       {img ? <img id="quizImg" src={img} alt="coctail" /> : <div></div>}
       {feedback ? <h3>Learn more about these drinks...</h3> : <div></div>}
       <div className="cardContainer">
